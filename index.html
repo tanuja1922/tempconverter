@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature converter</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        body{
+            padding-top: 10px;
+            padding-left: 250px;
+            padding-right:250px;
+            background-color: bisque;
+            
+        }
+        h1{
+            text-align: center;
+        }
+       #container{
+        background-color: #a0fabb;
+        text-align: center;
+       border-radius: 10px;
+       border-style: inset;
+       border-color: black;
+       border-width: 5px;
+        padding: 50px;
+
+       }
+       .input-div{
+        display: inline-block;
+       }
+       .inp{
+        padding: 5px 10px;
+        margin: 10px;
+        font-size: 20px;
+        width: 250px;
+        font-weight: bold;
+        text-align: center;
+       }
+       label{
+        font-size: 25px;
+         }
+       
+    </style>
+</head>
+<body>
+    <img src="img/temp1.gif" width="50px" style="top:10px;right:500px;">
+    <img src="img/temp2" width="50px">
+    <h1>Temperature Converter</h1>
+    <div id="container">
+        <div class="input-div">
+            <label>Celsius</label><br>
+         <input type="number" value="0" id="cel" class="inp">
+        </div>
+        <div class="input-div">
+            <label>Fahrenheit</label><br>
+            <input type="number" value="32" id="feh" class="inp">
+        </div>
+    </div>
+    
+    <script>
+        var cel= document.getElementById("cel");
+        var fah = document.getElementById("feh");
+
+        cel.addEventListener('input',function(){
+            let c = this.value;
+            let f = ((c * 9/5) + 32);
+            if(!Number.isInteger(f)){
+                f=f.toFixed(3);
+            }
+            fah.value = f;
+            // control.log("cel changed");
+        });
+        fah.addEventListener('input',function(){
+            let f = this.value;
+            let c = ((f - 32) * 5/9);
+            if(!Number.isInteger(c)){
+                c=c.toFixed(3);
+            }
+            cel.value = c;
+            
+            // control.log("cel changed");
+        });
+    </script>
+
+
+
+
+
+    <!-- <form id="tempCalc" onsubmit="calculateTemp(); return false"> 
+        <label for="temp">Please enter the temperature to convert.</label><br><br>
+        <input type="number" name="temp" id="temp">
+        <select name="temp_diff" id="temp_diff">
+            <option value="cel">Celsius</option>
+            <option value="fah">Fahrenheit</option>
+        </select> <br><br>
+        <input type="submit" name="temp"><br>
+        <span id="resultContainer"></span>
+    </form>
+    <script src="a.js"></script> -->
+</body>
+</html>
